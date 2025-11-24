@@ -1,0 +1,43 @@
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Data directories
+data/recordings/*.wav
+data/syllables/*/
+models/*.pth
+models/*.pkl
+
+# Keep directory structure but ignore contents
+!data/recordings/.gitkeep
+!data/syllables/.gitkeep
+!data/training_data/.gitkeep
+!models/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/

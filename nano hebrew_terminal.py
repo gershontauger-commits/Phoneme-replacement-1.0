@@ -1,0 +1,1 @@
+nano hebrew_terminal.py
