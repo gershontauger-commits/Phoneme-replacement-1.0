@@ -205,6 +205,36 @@ class HebrewSpeechCorrectorGUI:
             bd=3
         ).grid(row=0, column=2, padx=10)
         
+        # Playback controls frame
+        playback_frame = ttk.LabelFrame(self.training_frame, text="Review Recording", padding="10")
+        playback_frame.grid(row=3, column=0, pady=10)
+        
+        tk.Button(
+            playback_frame,
+            text="▶ PLAY SAVED RECORDING",
+            command=self.play_saved_syllable,
+            font=("Helvetica", 12, "bold"),
+            bg="#9C27B0",
+            fg="white",
+            width=25,
+            height=2,
+            relief=tk.RAISED,
+            bd=3
+        ).grid(row=0, column=0, padx=10)
+        
+        tk.Button(
+            playback_frame,
+            text="🔄 RE-RECORD THIS SYLLABLE",
+            command=self.rerecord_syllable,
+            font=("Helvetica", 12, "bold"),
+            bg="#FF9800",
+            fg="white",
+            width=25,
+            height=2,
+            relief=tk.RAISED,
+            bd=3
+        ).grid(row=0, column=1, padx=10)
+        
         # Update training progress
         self.update_training_progress()
     
@@ -431,6 +461,51 @@ class HebrewSpeechCorrectorGUI:
             self.current_syllable_label.config(foreground="#2E86AB")
             self.status_var.set("Ready")
     
+    def play_saved_syllable(self):
+        """Play the saved recording of current syllable"""
+        if not self.current_training_syllable:
+            messagebox.showinfo("No Syllable", "No syllable selected")
+            return
+        
+        try:
+            import soundfile as sf
+            import sounddevice as sd
+            
+            # Check if syllable has been recorded
+            recordings = self.training_system.progress.get(self.current_training_syllable, {}).get('recordings', [])
+            if not recordings:
+                messagebox.showinfo("Not Recorded", f"Syllable '{self.current_training_syllable}' has not been recorded yet")
+                return
+            
+            # Get the latest recording file
+            latest_recording = recordings[-1]
+            
+            # Load and play audio
+            audio, sr = sf.read(latest_recording)
+            self.status_var.set(f"▶ Playing: {self.current_training_syllable}")
+            sd.play(audio, sr)
+            sd.wait()
+            self.status_var.set("Ready")
+        except Exception as e:
+            messagebox.showerror("Playback Error", f"Could not play recording: {str(e)}")
+            self.status_var.set("Ready")
+    
+    def rerecord_syllable(self):
+        """Allow re-recording the current syllable"""
+        if not self.current_training_syllable:
+            messagebox.showinfo("No Syllable", "No syllable selected")
+            return
+        
+        result = messagebox.askyesno(
+            "Re-record Syllable",
+            f"Are you sure you want to re-record '{self.current_training_syllable}'?\n\n"
+            "This will replace the existing recording."
+        )
+        
+        if result:
+            self.status_var.set(f"Ready to re-record: {self.current_training_syllable}")
+            messagebox.showinfo("Ready", "Click 'START RECORDING' to record the syllable again")
+    
     def start_recording(self):
         """Start recording for correction"""
         self.recorder.start_recording()
@@ -490,33 +565,74 @@ class HebrewSpeechCorrectorGUI:
         threading.Thread(target=analyze_thread, daemon=True).start()
     
     def display_results(self, report):
-        """Display analysis results"""
+        """Display analysis results with visual syllable breakdown"""
         self.results_text.delete(1.0, tk.END)
         
-        results = f"Analysis Results:\n"
-        results += f"=" * 50 + "\n\n"
-        results += f"Total syllables detected: {report['total_syllables']}\n"
-        results += f"Syllables corrected: {report['syllables_corrected']}\n"
-        results += f"Average quality score: {report['average_quality_before']:.2f}\n\n"
+        results = f"╔═══════════════════════════════════════════════════╗\n"
+        results += f"║         HEBREW SPEECH ANALYSIS RESULTS           ║\n"
+        results += f"╚═══════════════════════════════════════════════════╝\n\n"
         
+        results += f"📊 Summary:\n"
+        results += f"   • Total syllables detected: {report['total_syllables']}\n"
+        results += f"   • Syllables corrected: {report['syllables_corrected']}\n"
+        results += f"   • Average quality: {report['average_quality_before']:.1f}%\n\n"
+        
+        # Visual syllable timeline
+        results += f"🎵 SYLLABLE BREAKDOWN (Timeline):\n"
+        results += f"{'─' * 50}\n"
+        
+        # Group syllables into words (consecutive syllables with <0.2s gap)
+        words = []
+        current_word = []
+        for i, syl in enumerate(report['syllables_analyzed']):
+            if i > 0:
+                gap = syl['start_time'] - report['syllables_analyzed'][i-1]['end_time']
+                if gap > 0.2:  # New word if gap > 0.2 seconds
+                    if current_word:
+                        words.append(current_word)
+                    current_word = []
+            current_word.append(syl)
+        if current_word:
+            words.append(current_word)
+        
+        # Display words with syllables
+        for word_idx, word in enumerate(words, 1):
+            word_start = word[0]['start_time']
+            word_end = word[-1]['end_time']
+            results += f"\n📍 Word #{word_idx} [{word_start:.2f}s - {word_end:.2f}s]:\n"
+            
+            # Build visual representation
+            syllables_str = " | ".join([s['matched_syllable'] for s in word])
+            results += f"   Syllables: [ {syllables_str} ]\n"
+            
+            # Quality indicators
+            quality_str = ""
+            for syl in word:
+                q = syl['quality_score']
+                if q >= 0.85:
+                    quality_str += "✓ "
+                elif q >= 0.70:
+                    quality_str += "○ "
+                else:
+                    quality_str += "✗ "
+            results += f"   Quality:   [ {quality_str}]\n"
+            
+            # Show individual syllable details
+            for i, syl in enumerate(word, 1):
+                status_icon = "✓" if syl['quality_score'] >= 0.85 else "⚠" if syl['quality_score'] >= 0.70 else "✗"
+                results += f"      {i}. {status_icon} '{syl['matched_syllable']}' - Quality: {syl['quality_score']:.0%}\n"
+        
+        # Corrections summary
+        results += f"\n{'─' * 50}\n"
         if report['syllables_corrected'] > 0:
-            results += "Corrections made:\n"
-            results += "-" * 50 + "\n"
+            results += f"\n🔧 CORRECTIONS APPLIED:\n"
             for correction in report['corrections']:
-                results += f"  • Syllable '{correction['syllable']}' at {correction['start_time']:.2f}s\n"
-                results += f"    Original quality: {correction['original_quality']:.2f}\n"
+                results += f"   ✗ → ✓  '{correction['syllable']}' at {correction['start_time']:.2f}s\n"
+                results += f"          Quality improved: {correction['original_quality']:.0%} → 100%\n"
         else:
-            results += "No corrections needed - Great pronunciation!\n"
+            results += f"\n🎉 EXCELLENT! No corrections needed!\n"
         
-        results += "\n" + "=" * 50 + "\n\n"
-        results += "Detailed Analysis:\n"
-        results += "-" * 50 + "\n"
-        
-        for i, syllable in enumerate(report['syllables_analyzed'], 1):
-            results += f"{i}. Time: {syllable['start_time']:.2f}s - {syllable['end_time']:.2f}s\n"
-            results += f"   Matched: {syllable['matched_syllable']}\n"
-            results += f"   Quality: {syllable['quality_score']:.2f}\n"
-            results += f"   Status: {syllable['message']}\n\n"
+        results += f"\n{'═' * 50}\n"
         
         self.results_text.insert(1.0, results)
     
