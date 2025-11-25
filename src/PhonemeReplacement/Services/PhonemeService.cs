@@ -12,8 +12,11 @@ namespace PhonemeReplacement.Services
     /// </summary>
     public class PhonemeService
     {
+        private static readonly string Consonants = "bcdfghjklmnpqrstvwxz";
+        
         private readonly PhonemeData _phonemeData;
         private readonly ReplacementRulesData _rulesData;
+        private readonly Dictionary<string, ReplacementRule> _rulesByName;
 
         public PhonemeService(string dataPath)
         {
@@ -40,6 +43,9 @@ namespace PhonemeReplacement.Services
             {
                 _rulesData = new ReplacementRulesData();
             }
+            
+            // Create dictionary lookup for rules by name
+            _rulesByName = _rulesData.ReplacementRules.ToDictionary(r => r.Name, r => r);
         }
 
         /// <summary>
@@ -74,8 +80,7 @@ namespace PhonemeReplacement.Services
             }
 
             // Apply voicing substitution
-            var voicingRule = _rulesData.ReplacementRules.FirstOrDefault(r => r.Name == "VoicingSubstitution");
-            if (voicingRule?.Mapping != null)
+            if (_rulesByName.TryGetValue("VoicingSubstitution", out var voicingRule) && voicingRule.Mapping != null)
             {
                 var voicingReplacement = ApplyMapping(word, voicingRule.Mapping);
                 if (voicingReplacement != word)
@@ -85,8 +90,7 @@ namespace PhonemeReplacement.Services
             }
 
             // Apply fronting substitution
-            var frontingRule = _rulesData.ReplacementRules.FirstOrDefault(r => r.Name == "FrontingSubstitution");
-            if (frontingRule?.Mapping != null)
+            if (_rulesByName.TryGetValue("FrontingSubstitution", out var frontingRule) && frontingRule.Mapping != null)
             {
                 var frontingReplacement = ApplyMapping(word, frontingRule.Mapping);
                 if (frontingReplacement != word)
@@ -96,8 +100,7 @@ namespace PhonemeReplacement.Services
             }
 
             // Apply gliding substitution
-            var glidingRule = _rulesData.ReplacementRules.FirstOrDefault(r => r.Name == "GlidingSubstitution");
-            if (glidingRule?.Mapping != null)
+            if (_rulesByName.TryGetValue("GlidingSubstitution", out var glidingRule) && glidingRule.Mapping != null)
             {
                 var glidingReplacement = ApplyMapping(word, glidingRule.Mapping);
                 if (glidingReplacement != word)
@@ -107,8 +110,7 @@ namespace PhonemeReplacement.Services
             }
 
             // Apply stopping substitution
-            var stoppingRule = _rulesData.ReplacementRules.FirstOrDefault(r => r.Name == "StoppingSubstitution");
-            if (stoppingRule?.Mapping != null)
+            if (_rulesByName.TryGetValue("StoppingSubstitution", out var stoppingRule) && stoppingRule.Mapping != null)
             {
                 var stoppingReplacement = ApplyMapping(word, stoppingRule.Mapping);
                 if (stoppingReplacement != word)
@@ -118,7 +120,7 @@ namespace PhonemeReplacement.Services
             }
 
             // Final consonant deletion
-            if (word.Length > 1 && "bcdfghjklmnpqrstvwxz".Contains(word[word.Length - 1]))
+            if (word.Length > 1 && Consonants.Contains(word[word.Length - 1]))
             {
                 replacements.Add($"Final deletion: {word.Substring(0, word.Length - 1)}");
             }
