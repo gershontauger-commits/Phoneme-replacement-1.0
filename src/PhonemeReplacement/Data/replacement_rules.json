@@ -1,0 +1,59 @@
+{
+  "replacementRules": [
+    {
+      "name": "SimplifyConsonantClusters",
+      "description": "Simplifies consonant clusters by removing or replacing sounds",
+      "pattern": "^[bcdfghjklmnpqrstvwxz]{2,}",
+      "examples": [
+        {"input": "street", "output": "treet"},
+        {"input": "splash", "output": "plash"}
+      ]
+    },
+    {
+      "name": "FinalConsonantDeletion",
+      "description": "Removes final consonant from words",
+      "pattern": "[bcdfghjklmnpqrstvwxz]$",
+      "examples": [
+        {"input": "cat", "output": "ca"},
+        {"input": "dog", "output": "do"}
+      ]
+    },
+    {
+      "name": "VoicingSubstitution",
+      "description": "Replaces voiced consonants with voiceless equivalents",
+      "mapping": {
+        "b": "p",
+        "d": "t",
+        "g": "k",
+        "v": "f",
+        "z": "s"
+      }
+    },
+    {
+      "name": "FrontingSubstitution",
+      "description": "Replaces back consonants with front consonants",
+      "mapping": {
+        "k": "t",
+        "g": "d"
+      }
+    },
+    {
+      "name": "GlidingSubstitution",
+      "description": "Replaces liquids (l, r) with glides (w, y)",
+      "mapping": {
+        "l": "w",
+        "r": "w"
+      }
+    },
+    {
+      "name": "StoppingSubstitution",
+      "description": "Replaces fricatives with stops",
+      "mapping": {
+        "f": "p",
+        "v": "b",
+        "s": "t",
+        "z": "d"
+      }
+    }
+  ]
+}

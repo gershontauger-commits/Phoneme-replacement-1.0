@@ -1,0 +1,106 @@
+{
+  "phonemes": [
+    {
+      "symbol": "p",
+      "description": "Voiceless bilabial plosive",
+      "examples": ["pat", "spin", "tip"],
+      "replacements": ["b", "f"]
+    },
+    {
+      "symbol": "b",
+      "description": "Voiced bilabial plosive",
+      "examples": ["bat", "cab"],
+      "replacements": ["p", "v"]
+    },
+    {
+      "symbol": "t",
+      "description": "Voiceless alveolar plosive",
+      "examples": ["tap", "stick", "hit"],
+      "replacements": ["d", "s"]
+    },
+    {
+      "symbol": "d",
+      "description": "Voiced alveolar plosive",
+      "examples": ["dad", "add"],
+      "replacements": ["t", "z"]
+    },
+    {
+      "symbol": "k",
+      "description": "Voiceless velar plosive",
+      "examples": ["cat", "kick", "back"],
+      "replacements": ["g", "x"]
+    },
+    {
+      "symbol": "g",
+      "description": "Voiced velar plosive",
+      "examples": ["go", "get", "bag"],
+      "replacements": ["k"]
+    },
+    {
+      "symbol": "f",
+      "description": "Voiceless labiodental fricative",
+      "examples": ["fat", "laugh"],
+      "replacements": ["v", "p"]
+    },
+    {
+      "symbol": "v",
+      "description": "Voiced labiodental fricative",
+      "examples": ["vat", "love"],
+      "replacements": ["f", "b"]
+    },
+    {
+      "symbol": "s",
+      "description": "Voiceless alveolar fricative",
+      "examples": ["sat", "miss"],
+      "replacements": ["z", "th"]
+    },
+    {
+      "symbol": "z",
+      "description": "Voiced alveolar fricative",
+      "examples": ["zoo", "jazz"],
+      "replacements": ["s", "d"]
+    },
+    {
+      "symbol": "m",
+      "description": "Voiced bilabial nasal",
+      "examples": ["man", "ham"],
+      "replacements": ["n", "b"]
+    },
+    {
+      "symbol": "n",
+      "description": "Voiced alveolar nasal",
+      "examples": ["no", "sun"],
+      "replacements": ["m", "d"]
+    },
+    {
+      "symbol": "l",
+      "description": "Voiced alveolar lateral approximant",
+      "examples": ["let", "bell"],
+      "replacements": ["r", "w"]
+    },
+    {
+      "symbol": "r",
+      "description": "Voiced alveolar approximant",
+      "examples": ["red", "car"],
+      "replacements": ["l", "w"]
+    },
+    {
+      "symbol": "w",
+      "description": "Voiced labio-velar approximant",
+      "examples": ["we", "wow"],
+      "replacements": ["r", "l"]
+    },
+    {
+      "symbol": "y",
+      "description": "Voiced palatal approximant",
+      "examples": ["yes", "you"],
+      "replacements": ["j"]
+    },
+    {
+      "symbol": "h",
+      "description": "Voiceless glottal fricative",
+      "examples": ["hat", "who"],
+      "replacements": []
+    }
+  ]
+}
