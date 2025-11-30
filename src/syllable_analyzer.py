@@ -33,23 +33,39 @@ class SyllableAnalyzer:
         Detect syllable boundaries in audio using energy and onset detection
         Returns list of (start_time, end_time) tuples
         """
+        print(f"DEBUG: Audio length: {len(audio)} samples, duration: {len(audio)/self.sample_rate:.2f}s")
+        
         # Calculate energy envelope
         hop_length = 512
         energy = librosa.feature.rms(y=audio, hop_length=hop_length)[0]
         
-        # Calculate onset strength
+        # Calculate onset strength with more sensitivity
         onset_env = librosa.onset.onset_strength(y=audio, sr=self.sample_rate, hop_length=hop_length)
         
-        # Detect onsets (potential syllable starts)
+        # Detect onsets with lower threshold for better detection
         onsets = librosa.onset.onset_detect(
             onset_envelope=onset_env,
             sr=self.sample_rate,
             hop_length=hop_length,
-            backtrack=True
+            backtrack=True,
+            delta=0.05,  # Lower threshold
+            wait=10  # Shorter wait time between onsets
         )
+        
+        print(f"DEBUG: Detected {len(onsets)} onsets")
         
         # Convert onset frames to time
         onset_times = librosa.frames_to_time(onsets, sr=self.sample_rate, hop_length=hop_length)
+        
+        # If no onsets detected, treat entire audio as one syllable
+        if len(onset_times) == 0:
+            audio_duration = len(audio) / self.sample_rate
+            if audio_duration >= self.min_syllable_duration:
+                print(f"DEBUG: No onsets, using full audio as single syllable ({audio_duration:.2f}s)")
+                return [(0, audio_duration)]
+            else:
+                print(f"DEBUG: Audio too short ({audio_duration:.2f}s)")
+                return []
         
         # Create syllable boundaries
         boundaries = []
@@ -61,14 +77,22 @@ class SyllableAnalyzer:
             # Filter by duration constraints
             if self.min_syllable_duration <= duration <= self.max_syllable_duration:
                 boundaries.append((start, end))
+                print(f"DEBUG: Syllable {len(boundaries)}: {start:.2f}s - {end:.2f}s ({duration:.2f}s)")
+            else:
+                print(f"DEBUG: Rejected syllable: {start:.2f}s - {end:.2f}s ({duration:.2f}s) - out of range")
         
         # Handle last syllable
         if len(onset_times) > 0:
             last_start = onset_times[-1]
             last_end = len(audio) / self.sample_rate
-            if self.min_syllable_duration <= (last_end - last_start) <= self.max_syllable_duration:
+            duration = last_end - last_start
+            if self.min_syllable_duration <= duration <= self.max_syllable_duration:
                 boundaries.append((last_start, last_end))
+                print(f"DEBUG: Final syllable: {last_start:.2f}s - {last_end:.2f}s ({duration:.2f}s)")
+            else:
+                print(f"DEBUG: Rejected final syllable: duration {duration:.2f}s out of range")
         
+        print(f"DEBUG: Total valid syllables: {len(boundaries)}")
         return boundaries
     
     def extract_syllables(self, audio, boundaries):
@@ -94,26 +118,36 @@ class SyllableAnalyzer:
         Extract acoustic features from a syllable for comparison
         Returns feature vector
         """
-        # MFCC features (Mel-frequency cepstral coefficients)
-        mfccs = librosa.feature.mfcc(y=audio_segment, sr=self.sample_rate, n_mfcc=13)
-        mfccs_mean = np.mean(mfccs, axis=1)
-        mfccs_std = np.std(mfccs, axis=1)
-        
-        # Spectral features
-        spectral_centroid = np.mean(librosa.feature.spectral_centroid(y=audio_segment, sr=self.sample_rate))
-        spectral_rolloff = np.mean(librosa.feature.spectral_rolloff(y=audio_segment, sr=self.sample_rate))
-        
-        # Zero crossing rate
-        zcr = np.mean(librosa.feature.zero_crossing_rate(audio_segment))
-        
-        # Combine features - ensure all are 1D arrays
-        features = np.concatenate([
-            mfccs_mean.flatten(),
-            mfccs_std.flatten(),
-            np.array([spectral_centroid, spectral_rolloff, zcr])
-        ])
-        
-        return features
+        # Ensure audio segment is long enough
+        if len(audio_segment) < 512:
+            print(f"DEBUG: Audio segment too short ({len(audio_segment)} samples), returning zeros")
+            return np.zeros(29)
+        try:
+            # MFCC features (Mel-frequency cepstral coefficients)
+            mfccs = librosa.feature.mfcc(y=audio_segment, sr=self.sample_rate, n_mfcc=13)
+            mfccs_mean = np.mean(mfccs, axis=1)
+            mfccs_std = np.std(mfccs, axis=1)
+            
+            # Spectral features
+            spectral_centroid = np.mean(librosa.feature.spectral_centroid(y=audio_segment, sr=self.sample_rate))
+            spectral_rolloff = np.mean(librosa.feature.spectral_rolloff(y=audio_segment, sr=self.sample_rate))
+            
+            # Zero crossing rate
+            zcr = np.mean(librosa.feature.zero_crossing_rate(audio_segment))
+            
+            # Combine features - ensure all are 1D arrays
+            features = np.concatenate([
+                mfccs_mean.flatten(),
+                mfccs_std.flatten(),
+                np.array([spectral_centroid, spectral_rolloff, zcr])
+            ])
+            if features.shape[0] != 29:
+                print(f"DEBUG: Feature extraction failed, got shape {features.shape}, returning zeros")
+                return np.zeros(29)
+            return features
+        except Exception as e:
+            print(f"DEBUG: Librosa feature extraction error: {e}, returning zeros")
+            return np.zeros(29)
     
     def analyze_audio(self, audio):
         """

@@ -32,12 +32,17 @@ class AudioCorrector:
         """
         # Extract syllables
         syllables = self.analyzer.analyze_audio(audio)
+        print(f"DEBUG: {len(syllables)} syllables extracted")
         
         # For each syllable, find best matching reference
         assessed_syllables = []
         
         for i, syllable in enumerate(syllables):
             features = syllable['features']
+            print(f"DEBUG: Syllable {i} feature shape: {np.shape(features)}")
+            if features is None or len(features) == 0:
+                print(f"DEBUG: Syllable {i} has empty features, skipping")
+                continue
             
             # Find best matching reference syllable
             best_match = None

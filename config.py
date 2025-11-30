@@ -19,8 +19,8 @@ AUDIO_FORMAT = 'wav'
 
 # Hebrew syllable settings
 TARGET_SYLLABLE_COUNT = 100  # Most common Hebrew syllables to train
-MIN_SYLLABLE_DURATION = 0.1  # seconds
-MAX_SYLLABLE_DURATION = 0.5  # seconds
+MIN_SYLLABLE_DURATION = 0.05  # seconds (more flexible)
+MAX_SYLLABLE_DURATION = 1.5  # seconds (allow longer syllables)
 
 # ML Model settings
 MODEL_NAME = 'hebrew_syllable_corrector'

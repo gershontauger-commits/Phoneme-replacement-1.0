@@ -170,7 +170,10 @@ class PronunciationModel:
                 similarity = cosine_similarity(emb1, emb2)[0][0]
         else:
             # Use raw features
-            similarity = cosine_similarity(features1.reshape(1, -1), features2.reshape(1, -1))[0][0]
+            print(f"DEBUG: compare_syllables shapes: {np.shape(features1)}, {np.shape(features2)}")
+            features1 = np.array(features1).reshape(1, -1)
+            features2 = np.array(features2).reshape(1, -1)
+            similarity = cosine_similarity(features1, features2)[0, 0]
         
         # Convert to 0-1 range
         similarity = (similarity + 1) / 2

@@ -1,0 +1,931 @@
+{
+  "בְּ": {
+    "trained": true,
+    "recordings": [
+      {
+        "filepath": "/home/gershon-tauger/phoneme-replacement/data/syllables/בְּ/correct_20251125_100122.wav",
+        "timestamp": "20251125_100122",
+        "label": "correct",
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "quality_score": 1.0,
+    "feature_vector": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "לְ": {
+    "trained": true,
+    "recordings": [
+      {
+        "filepath": "/home/gershon-tauger/phoneme-replacement/data/syllables/לְ/correct_20251125_100207.wav",
+        "timestamp": "20251125_100207",
+        "label": "correct",
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "quality_score": 1.0,
+    "feature_vector": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "שֶׁ": {
+    "trained": true,
+    "recordings": [
+      {
+        "filepath": "/home/gershon-tauger/phoneme-replacement/data/syllables/שֶׁ/correct_20251130_124236.wav",
+        "timestamp": "20251130_124236",
+        "label": "correct",
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "quality_score": 1.0,
+    "feature_vector": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "הַ": {
+    "trained": true,
+    "recordings": [
+      {
+        "filepath": "/home/gershon-tauger/phoneme-replacement/data/syllables/הַ/correct_20251130_124254.wav",
+        "timestamp": "20251130_124254",
+        "label": "correct",
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "quality_score": 1.0,
+    "feature_vector": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "מֵ": {
+    "trained": true,
+    "recordings": [
+      {
+        "filepath": "/home/gershon-tauger/phoneme-replacement/data/syllables/מֵ/correct_20251130_124326.wav",
+        "timestamp": "20251130_124326",
+        "label": "correct",
+        "features": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ]
+      }
+    ],
+    "quality_score": 1.0,
+    "feature_vector": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ]
+  },
+  "כָּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "תִּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "וְ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "יְ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "נִ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "רַ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "סֵ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "עַ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "פָּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "צְ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "קֹ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "דָ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "גַ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "זֶ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "חֹ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "לֹא": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "מַה": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "אֶת": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "זֶה": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "הוּא": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "הִיא": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "אֲנִי": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "אַתָּה": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "אַתְּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "הֵם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "שֶׁל": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "עַל": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "אֵל": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "בֵּין": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "עִם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "כְּמֹו": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "גַּם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "רַק": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "אוֹ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "אִם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "מִ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "בִּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "לִ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "כְּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "שְׁ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "הָ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "וּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "יִ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "תְּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "נְ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "תִי": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "תָּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "נוּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "תֶּם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "הֶן": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "ךָ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "כֶם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "הָה": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "וֹת": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "תִּי": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "רָה": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "לָה": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "יָה": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "נָה": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "מָה": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "בָּה": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "שָׁה": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "דָה": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "כָה": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "סָה": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "רִי": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "לִי": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "יִי": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "נִי": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "מִי": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "בִּי": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "שִׁי": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "דִי": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "כִּי": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "סִי": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "רוּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "לוּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "יוּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "מוּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "בּוּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "שׁוּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "דוּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "כּוּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "סוּ": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "רֶם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "לֶם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "יֶם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "נֶם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "מֶם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "בֶּם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "שֶׁם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "דֶם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "כֶּם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  },
+  "סֶם": {
+    "trained": false,
+    "recordings": [],
+    "quality_score": 0.0,
+    "feature_vector": null
+  }
+}
